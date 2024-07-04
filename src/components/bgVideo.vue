@@ -1,6 +1,6 @@
 <template>
   <div class="background-video">
-    <video autoplay muted loop>
+    <video autoplay muted playsinline loop>
       <source :src="videoSrc" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
