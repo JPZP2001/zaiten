@@ -12,8 +12,8 @@ export default {
   name: 'BackgroundVideo',
   data() {
     return {
-      desktopVideoSrc: '/bg.mp4', // Path to the desktop video
-      mobileVideoSrc: '/bgMobile.mp4', // Path to the mobile video
+      desktopVideoSrc: '/zaiten/bg.mp4', // Path to the desktop video
+      mobileVideoSrc: '/zaiten/bgMobile.mp4', // Path to the mobile video
       videoSrc: '', // Active video source
     };
   },
