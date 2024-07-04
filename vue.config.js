@@ -1,5 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  base: "/zaiten/",
+  plugins: [],
+  resolve: {
+    alias: [
+      
+    ]
+  },
   transpileDependencies: true
 })
 
