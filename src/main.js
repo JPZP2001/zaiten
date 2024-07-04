@@ -1,4 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import { createVuetify } from 'vuetify'
 
-createApp(App).mount('#app')
+const vuetify = createVuetify()
+
+import App from './App.vue'
+import router from './router'
+
+createApp(App)
+  .use(vuetify)
+  .use(router)
+  .mount('#app')
