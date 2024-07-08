@@ -50,6 +50,18 @@ export default {
     };
   },
   async created() {
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+      this.$router.push('/');
+    } else {
+      console.log('This page is not reloaded');
+    }
+
+    let navigationEntries = performance.getEntriesByType('navigation');
+    if (navigationEntries.length > 0 && navigationEntries[0].type === 'reload') {
+      this.$router.push('/');
+    } else {
+      console.log('This page is not reloaded');
+    }
     const clientId = process.env.VUE_APP_CLIENT_ID;
     const clientSecret = process.env.VUE_APP_CLIENT_SECRET;
     const paramsString = decodeURIComponent(this.$route.params.params);
