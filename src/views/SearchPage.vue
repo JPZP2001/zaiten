@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <LogoText />
-    <div v-if="track" class="container">
+    <div v-if="track && track.external_urls && track.external_urls.spotify" class="container">
       <div class="header">
         <span class="trackName"> {{ track.name }} </span>
         <br>
