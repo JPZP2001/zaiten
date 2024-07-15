@@ -1,6 +1,9 @@
 <template>
   <div class="search">
     <LogoText />
+    <div>
+    <PopupMessage ref="popupMessage"/>
+  </div>
     <div v-if="track && track.external_urls && track.external_urls.spotify" class="container">
       <div class="header">
         <span class="trackName"> {{ track.name }} </span>
@@ -33,13 +36,16 @@
 <script>
 import searchSliders from '../components/searchSliders.vue'
 import LogoText from '../components/logoText.vue'
+import PopupMessage from '../components/instructionsPopup.vue';
+
 import { getToken, getRecomendations, getCategories } from "../functions/spotifySetup";
 
 export default {
   name: "SearchPage",
   components: {
     searchSliders,
-    LogoText
+    LogoText,
+    PopupMessage
   },
   data() {
     return {
@@ -84,6 +90,18 @@ export default {
       console.error('Error fetching from API:', error);
     }
   },
+  methods: {
+    triggerPopup() {
+      this.$refs.popupMessage.showPopup("Customize the fields below to search for a random song that matches your preferences!");
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if (from.name === 'HomePage') {
+        vm.triggerPopup();
+      }
+    });
+  }
 };
 </script>
 
