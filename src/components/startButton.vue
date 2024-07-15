@@ -7,8 +7,8 @@
     name: 'StartButton',
     methods: {
       goToSearch() {
-        const paramsList = ['pop', 80, 0.7, 0.8]; // Replace with your list/array of variables
-        const paramsString = encodeURIComponent(JSON.stringify(paramsList)); // Serialize the list/array
+        const paramsList = ['pop', 80, 0.7, 0.8];
+        const paramsString = encodeURIComponent(JSON.stringify(paramsList));
         this.$router.push(`/search/${paramsString}`);
       }
     }

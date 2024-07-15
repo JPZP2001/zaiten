@@ -12,9 +12,9 @@ export default {
   name: 'BackgroundVideo',
   data() {
     return {
-      desktopVideoSrc: '/zaiten/bg.mp4', // Path to the desktop video
-      mobileVideoSrc: '/zaiten/bgMobile.mp4', // Path to the mobile video
-      videoSrc: '', // Active video source
+      desktopVideoSrc: '/zaiten/bg.mp4',
+      mobileVideoSrc: '/zaiten/bgMobile.mp4',
+      videoSrc: '',
     };
   },
   mounted() {
@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     updateVideoSource() {
-      // Check the screen width
       const isMobile = window.innerWidth <= 768;
       this.videoSrc = isMobile ? this.mobileVideoSrc : this.desktopVideoSrc;
     }

@@ -48,18 +48,8 @@ export default {
   },
   methods: {
     submitForm() {
-      // Debug logs
-      console.log('Form submitted');
-      console.log('Current values:', {
-        genre: this.genre,
-        popularity: this.popularity,
-        danceability: this.danceability,
-        energy: this.energy
-      });
-      
-      const paramsList = [this.genre, this.popularity, this.danceability, this.energy]; // Replace with your list/array of variables
-      const paramsString = encodeURIComponent(JSON.stringify(paramsList)); // Serialize the list/array
-      console.log('Navigating to:', `/search/${paramsString}`);
+      const paramsList = [this.genre, this.popularity, this.danceability, this.energy];
+      const paramsString = encodeURIComponent(JSON.stringify(paramsList));
       this.$router.replace(`/search/${paramsString}`);
     },
   },
@@ -67,7 +57,6 @@ export default {
     const clientId = process.env.VUE_APP_CLIENT_ID;
     const clientSecret = process.env.VUE_APP_CLIENT_SECRET;
     
-    // Check if params are present in the route
     if (this.$route.params.params) {
       const paramsString = decodeURIComponent(this.$route.params.params);
       const paramsL = JSON.parse(paramsString);
@@ -114,10 +103,6 @@ export default {
   margin-bottom: 1rem;
 }
 
-.form {
-
-}
-
 input {
   width: 250px;
 }
@@ -134,29 +119,28 @@ input {
 }
 
 .chunky-button {
-  background-color: #ff6b6b; /* Bright red background */
-  color: white; /* White text */
-  font-size: 18px; /* Slightly larger text */
-  font-weight: bold; /* Bold text */
-  padding: 15px 30px; /* Padding to make the button chunky */
-  border: none; /* Remove default border */
-  border-radius: 10px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Smooth transition */
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
 .chunky-button:hover {
-  background-color: #fa3535; /* Darker red on hover */
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  background-color: #fa3535;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .chunky-button:active {
-  transform: translateY(-2px); /* Slightly less lift on click */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Slightly lighter shadow on click */
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
-
 
 .genreLabel{
   margin-bottom: 8px;
@@ -176,11 +160,9 @@ select {
   border-radius: 0.25em;
   box-shadow: 0 0 1em 0 #515151;
   cursor: pointer;
-  /* Remove focus outline */
   &:focus {
     outline: none;
   }
-  /* <option> colors */
   option {
     color: inherit;
     background-color: var(--option-bg);
@@ -190,7 +172,7 @@ select {
 select:hover {
   box-shadow: 0 0 1.5em 0 #00B473;
 }
-/* === range theme and appearance === */
+
 input[type="range"] {
 	font-size: 1rem;
 	width: 250px;
@@ -213,14 +195,12 @@ input[type="range"] {
 	}
 }
 
-/* === range commons === */
 input[type="range"] {
 	position: relative;
 	background: #fff0;
 	overflow: hidden;
 }
 
-/* === WebKit specific styles === */
 input[type="range"],
 input[type="range"]::-webkit-slider-runnable-track,
 input[type="range"]::-webkit-slider-thumb {
